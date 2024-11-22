@@ -1,10 +1,11 @@
 import type { HandleType, Node } from "@xyflow/react";
 
-export type FieldRowProps = {
+export type FieldProps = {
   id: string;
   key: string;
   label: string;
   type: HandleType;
+  isFirst: boolean;
 };
 
 type ClassField = {

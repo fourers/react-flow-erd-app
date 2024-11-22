@@ -7,7 +7,7 @@ export const initialNodes: ClassNodeType[] = [
   {
     id: "cl",
     type: "class",
-    position: { x: -200, y: 0 },
+    position: { x: -300, y: 0 },
     data: {
       label: "Client",
       id: "cl",
