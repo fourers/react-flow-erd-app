@@ -1,17 +1,12 @@
 import { Handle, Position } from "@xyflow/react";
+import { FieldRowProps } from "./types";
 
-type FieldRowProps = {
-  id: string;
-  key: string;
-  label: string;
-};
-
-export function FieldRow({ id, key, label }: FieldRowProps) {
+export const FieldRow = ({ id, label, type }: FieldRowProps) => {
   return (
-    <div key={key} style={{ position: "relative" }}>
+    <div style={{ position: "relative" }}>
       <div>{label}</div>
-      <Handle type="target" position={Position.Left} id={`${id}-left`} />
-      <Handle type="target" position={Position.Right} id={`${id}-right`} />
+      <Handle type={type} position={Position.Left} id={`${id}-left`} />
+      <Handle type={type} position={Position.Right} id={`${id}-right`} />
     </div>
   );
-}
+};

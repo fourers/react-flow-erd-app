@@ -1,35 +1,39 @@
 import type { NodeTypes } from "@xyflow/react";
 
-import { PositionLoggerNode } from "./PositionLoggerNode";
-import { AppNode } from "./types";
+import { type ClassNode as ClassNodeType } from "./types";
 import { ClassNode } from "./ClassNode";
 
-export const initialNodes: AppNode[] = [
-  { id: "a", type: "input", position: { x: 0, y: 0 }, data: { label: "wire" } },
+export const initialNodes: ClassNodeType[] = [
   {
-    id: "b",
+    id: "cl",
     type: "class",
-    position: { x: -100, y: 100 },
+    position: { x: -200, y: 0 },
     data: {
-      label: "Hello",
-      id: "b",
+      label: "Client",
+      id: "cl",
       fields: [
-        { label: "First Name", id: "b.first_name" },
-        { label: "Last Name", id: "b.last_name" },
+        { label: "Id", id: "cl.id", type: "source" },
+        { label: "First Name", id: "cl.first_name", type: "source" },
+        { label: "Last Name", id: "cl.last_name", type: "source" },
       ],
     },
   },
-  { id: "c", position: { x: 100, y: 100 }, data: { label: "your ideas" } },
   {
-    id: "d",
-    type: "output",
-    position: { x: 0, y: 200 },
-    data: { label: "with React Flow" },
+    id: "co",
+    type: "class",
+    position: { x: 0, y: 0 },
+    data: {
+      label: "Company",
+      id: "co",
+      fields: [
+        { label: "Name", id: "co.name", type: "target" },
+        { label: "Category", id: "co.category", type: "target" },
+        { label: "CEO", id: "co.ceo", type: "target" },
+      ],
+    },
   },
 ];
 
 export const nodeTypes = {
-  "position-logger": PositionLoggerNode,
-  // Add any of your custom nodes here!
   class: ClassNode,
 } satisfies NodeTypes;

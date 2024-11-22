@@ -1,15 +1,19 @@
-import type { Node, BuiltInNode } from "@xyflow/react";
+import type { HandleType, Node } from "@xyflow/react";
 
-export type PositionLoggerNode = Node<{ label: string }, "position-logger">;
+export type FieldRowProps = {
+  id: string;
+  key: string;
+  label: string;
+  type: HandleType;
+};
 
 type ClassField = {
   id: string;
   label: string;
+  type: HandleType;
 };
 
 export type ClassNode = Node<
   { label: string; fields: ClassField[]; id: string },
   "class"
 >;
-
-export type AppNode = BuiltInNode | PositionLoggerNode | ClassNode;

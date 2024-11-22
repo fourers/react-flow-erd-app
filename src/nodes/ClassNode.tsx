@@ -9,9 +9,12 @@ export function ClassNode({ data }: NodeProps<ClassNode>) {
       {<h3>{data.label}</h3>}
       <hr />
       {data.fields.map((field) => (
-        <>
-          <FieldRow id={field.id} key={field.id} label={field.label} />
-        </>
+        <FieldRow
+          id={field.id}
+          key={field.id}
+          label={field.label}
+          type={field.type}
+        />
       ))}
     </div>
   );
