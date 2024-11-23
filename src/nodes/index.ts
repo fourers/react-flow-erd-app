@@ -26,9 +26,26 @@ export const initialNodes: ClassNodeType[] = [
       label: "Company",
       id: "co",
       fields: [
+        { label: "Id", id: "co.id", type: "target" },
         { label: "Name", id: "co.name", type: "target" },
         { label: "Category", id: "co.category", type: "target" },
         { label: "CEO", id: "co.ceo", type: "target" },
+        { label: "Location", id: "co.location", type: "target" },
+      ],
+    },
+  },
+  {
+    id: "lo",
+    type: "class",
+    position: { x: 300, y: 0 },
+    data: {
+      label: "Location",
+      id: "lo",
+      fields: [
+        { label: "Id", id: "lo.id", type: "source" },
+        { label: "Address", id: "lo.address", type: "source" },
+        { label: "City", id: "lo.city", type: "source" },
+        { label: "Country", id: "lo.country", type: "source" },
       ],
     },
   },

@@ -13,6 +13,16 @@ export const initialEdges: Edge[] = [
       targetId: "co.ceo",
     },
   },
+  {
+    id: "company_location",
+    source: "lo",
+    target: "co",
+    type: "simple",
+    data: {
+      sourceId: "lo.id",
+      targetId: "co.location",
+    }
+  },
 ];
 
 export const edgeTypes = {
