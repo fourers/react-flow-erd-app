@@ -1,6 +1,11 @@
-import { getSmoothStepPath, Position, useInternalNode } from "@xyflow/react";
+import {
+  type EdgeProps,
+  getSmoothStepPath,
+  Position,
+  useInternalNode,
+} from "@xyflow/react";
 
-import { EdgePosition, type SimpleEdgeProps } from "./types.ts";
+import { EdgePosition, type SimpleEdge } from "./types.ts";
 import { getEdgePosition, getHandleCoords } from "./utils.ts";
 
 export function SimpleEdge({
@@ -10,7 +15,7 @@ export function SimpleEdge({
   markerEnd,
   style,
   data,
-}: SimpleEdgeProps) {
+}: EdgeProps<SimpleEdge>) {
   const sourceNode = useInternalNode(source);
   const targetNode = useInternalNode(target);
 
@@ -24,7 +29,7 @@ export function SimpleEdge({
     edgePosition == EdgePosition.Left ? Position.Right : Position.Left;
   const sourceCoords = getHandleCoords(
     sourceNode,
-    data.sourceId,
+    data?.sourceId ?? "",
     sourcePos,
     "source",
   );
@@ -33,7 +38,7 @@ export function SimpleEdge({
     edgePosition == EdgePosition.Left ? Position.Left : Position.Right;
   const targetCoords = getHandleCoords(
     targetNode,
-    data.targetId,
+    data?.targetId ?? "",
     targetPos,
     "target",
   );

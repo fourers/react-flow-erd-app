@@ -1,4 +1,4 @@
-import { type EdgeProps } from "@xyflow/react";
+import { Edge } from "@xyflow/react";
 
 export enum EdgePosition {
   Left,
@@ -10,11 +10,10 @@ export type HandleCoords = {
   y: number;
 };
 
-type SimpleEdgeDataProps = {
-  sourceId: string;
-  targetId: string;
-};
-
-export type SimpleEdgeProps = EdgeProps & {
-  data: SimpleEdgeDataProps;
-};
+export type SimpleEdge = Edge<
+  {
+    sourceId: string;
+    targetId: string;
+  },
+  "simple"
+>;
