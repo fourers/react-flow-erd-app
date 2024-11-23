@@ -6,7 +6,7 @@ export const initialNodes: Node[] = [
   {
     id: "cl",
     type: "class",
-    position: { x: -300, y: 0 },
+    position: { x: -300, y: -100 },
     data: {
       label: "Client",
       id: "cl",
@@ -36,7 +36,7 @@ export const initialNodes: Node[] = [
   {
     id: "lo",
     type: "class",
-    position: { x: 300, y: 0 },
+    position: { x: 300, y: 100 },
     data: {
       label: "Location",
       id: "lo",

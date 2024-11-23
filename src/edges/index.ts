@@ -15,12 +15,12 @@ export const initialEdges: Edge[] = [
   },
   {
     id: "company_location",
-    source: "lo",
-    target: "co",
+    source: "co",
+    target: "lo",
     type: "simple",
     data: {
-      sourceId: "lo.id",
-      targetId: "co.location",
+      sourceId: "co.location",
+      targetId: "lo.id",
     },
   },
 ];
