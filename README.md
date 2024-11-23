@@ -52,3 +52,7 @@ Learn:
 
 - [React Flow – Custom Nodes](https://reactflow.dev/learn/customization/custom-nodes)
 - [React Flow – Layouting](https://reactflow.dev/learn/layouting/layouting)
+
+Inspired by:
+
+- [Twenty Data Model](https://github.com/twentyhq/twenty/tree/main/packages/twenty-front/src/modules/settings/data-model/graph-overview/components)
