@@ -1,16 +1,20 @@
 import type { Edge, EdgeTypes } from "@xyflow/react";
 
+import { SimpleEdge } from "./SimpleEdge";
+
 export const initialEdges: Edge[] = [
   {
     id: "ceo",
     source: "cl",
-    sourceHandle: "cl.id-right",
     target: "co",
-    targetHandle: "co.ceo-left",
-    type: "smoothstep",
+    type: "simple",
+    data: {
+      sourceId: "cl.id",
+      targetId: "co.ceo",
+    },
   },
 ];
 
 export const edgeTypes = {
-  // Add your custom edge types here!
+  simple: SimpleEdge,
 } satisfies EdgeTypes;
