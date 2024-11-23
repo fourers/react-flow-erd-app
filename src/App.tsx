@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import {
   ReactFlow,
   Background,
@@ -6,9 +6,9 @@ import {
   useNodesState,
   useEdgesState,
   type OnConnect,
-  Panel,
   useReactFlow,
   ReactFlowProvider,
+  useNodesInitialized,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
@@ -25,12 +25,15 @@ function App() {
     (connection) => setEdges((edges) => addEdge(connection, edges)),
     [setEdges],
   );
+  const nodesInitialized = useNodesInitialized();
 
-  const onLayout = useCallback(() => {
+  useEffect(() => {
+    if (!nodesInitialized) return;
     const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
       nodes,
       edges,
     );
+    console.log(layoutedNodes, layoutedEdges);
 
     setNodes([...layoutedNodes]);
     setEdges([...layoutedEdges]);
@@ -38,7 +41,8 @@ function App() {
     window.requestAnimationFrame(() => {
       fitView();
     });
-  }, [nodes, edges, setNodes, setEdges, fitView]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nodesInitialized]);
 
   return (
     <ReactFlow
@@ -52,9 +56,6 @@ function App() {
       fitView
     >
       <Background />
-      <Panel position="top-right">
-        <button onClick={onLayout}>layout</button>
-      </Panel>
     </ReactFlow>
   );
 }
