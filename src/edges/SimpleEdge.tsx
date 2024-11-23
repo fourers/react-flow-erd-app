@@ -22,7 +22,7 @@ export function SimpleEdge({
 
   const sourcePos =
     edgePosition == EdgePosition.Left ? Position.Right : Position.Left;
-  const [sx, sy] = getHandleCoords(
+  const sourceCoords = getHandleCoords(
     sourceNode,
     data.sourceId,
     sourcePos,
@@ -31,20 +31,24 @@ export function SimpleEdge({
 
   const targetPos =
     edgePosition == EdgePosition.Left ? Position.Left : Position.Right;
-  const [tx, ty] = getHandleCoords(
+  const targetCoords = getHandleCoords(
     targetNode,
     data.targetId,
     targetPos,
     "target",
   );
 
+  if (!sourceCoords || !targetCoords) {
+    return null;
+  }
+
   const [edgePath] = getSmoothStepPath({
-    sourceX: sx,
-    sourceY: sy,
+    sourceX: sourceCoords.x,
+    sourceY: sourceCoords.y,
     sourcePosition: sourcePos,
     targetPosition: targetPos,
-    targetX: tx,
-    targetY: ty,
+    targetX: targetCoords.x,
+    targetY: targetCoords.y,
     borderRadius: 0,
   });
 

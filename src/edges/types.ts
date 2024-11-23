@@ -5,6 +5,11 @@ export enum EdgePosition {
   Right,
 }
 
+export type HandleCoords = {
+  x: number;
+  y: number;
+};
+
 type SimpleEdgeDataProps = {
   sourceId: string;
   targetId: string;

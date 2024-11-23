@@ -21,7 +21,7 @@ export const initialEdges: Edge[] = [
     data: {
       sourceId: "lo.id",
       targetId: "co.location",
-    }
+    },
   },
 ];
 

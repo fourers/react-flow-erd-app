@@ -1,6 +1,6 @@
 import { InternalNode, Position } from "@xyflow/react";
 
-import { EdgePosition } from "./types";
+import { EdgePosition, HandleCoords } from "./types";
 
 export function getEdgePosition(
   nodeSource: InternalNode,
@@ -25,23 +25,20 @@ export function getHandleCoords(
   id: string,
   position: Position,
   type: "source" | "target",
-): [number, number] {
+): HandleCoords | null {
   const handleId = position == Position.Left ? `${id}-left` : `${id}-right`;
   const handle =
     type == "source"
       ? node.internals.handleBounds?.source?.find((h) => h.id === handleId)
       : node.internals.handleBounds?.target?.find((h) => h.id === handleId);
-  // Will default to top-left corner of node if corresponding handle cannot be found
+  if (!handle) {
+    return null;
+  }
   const x =
     position == Position.Left
-      ? node.internals.positionAbsolute.x + (handle?.x ?? 0)
-      : node.internals.positionAbsolute.x +
-        (handle?.x ?? 0) +
-        (handle?.width ?? 0);
-  const y =
-    node.internals.positionAbsolute.y +
-    (handle?.y ?? 0) +
-    (handle?.height ?? 0) / 2;
+      ? node.internals.positionAbsolute.x + handle.x
+      : node.internals.positionAbsolute.x + handle.x + handle.width;
+  const y = node.internals.positionAbsolute.y + handle.y + handle.height / 2;
 
-  return [x, y];
+  return { x: x, y: y };
 }
