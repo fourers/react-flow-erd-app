@@ -2,7 +2,7 @@ import { Handle, Position } from "@xyflow/react";
 import { FieldProps } from "./types";
 import { CSSProperties } from "react";
 
-export const Field = ({ id, label, type, isFirst }: FieldProps) => {
+export const Field = ({ id, label, isFirst }: FieldProps) => {
   let style: CSSProperties = {
     position: "relative",
     borderBottomColor: "gray",
@@ -25,13 +25,25 @@ export const Field = ({ id, label, type, isFirst }: FieldProps) => {
     <div style={style}>
       <div>{label}</div>
       <Handle
-        type={type}
+        type="source"
         position={Position.Left}
         id={`${id}-left`}
         style={{ left: "3px", visibility: "hidden" }}
       />
       <Handle
-        type={type}
+        type="source"
+        position={Position.Right}
+        id={`${id}-right`}
+        style={{ right: "3px", visibility: "hidden" }}
+      />
+      <Handle
+        type="target"
+        position={Position.Left}
+        id={`${id}-left`}
+        style={{ left: "3px", visibility: "hidden" }}
+      />
+      <Handle
+        type="target"
         position={Position.Right}
         id={`${id}-right`}
         style={{ right: "3px", visibility: "hidden" }}

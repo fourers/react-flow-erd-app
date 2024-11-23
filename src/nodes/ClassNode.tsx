@@ -12,7 +12,6 @@ export function ClassNode({ data }: NodeProps<ClassNode>) {
           id={field.id}
           key={field.id}
           label={field.label}
-          type={field.type}
           isFirst={i === 0}
         />
       ))}

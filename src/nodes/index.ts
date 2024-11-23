@@ -1,9 +1,8 @@
-import type { NodeTypes } from "@xyflow/react";
+import type { Node, NodeTypes } from "@xyflow/react";
 
-import { type ClassNode as ClassNodeType } from "./types";
 import { ClassNode } from "./ClassNode";
 
-export const initialNodes: ClassNodeType[] = [
+export const initialNodes: Node[] = [
   {
     id: "cl",
     type: "class",
@@ -12,9 +11,9 @@ export const initialNodes: ClassNodeType[] = [
       label: "Client",
       id: "cl",
       fields: [
-        { label: "Id", id: "cl.id", type: "source" },
-        { label: "First Name", id: "cl.first_name", type: "source" },
-        { label: "Last Name", id: "cl.last_name", type: "source" },
+        { label: "Id", id: "cl.id" },
+        { label: "First Name", id: "cl.first_name" },
+        { label: "Last Name", id: "cl.last_name" },
       ],
     },
   },
@@ -26,11 +25,11 @@ export const initialNodes: ClassNodeType[] = [
       label: "Company",
       id: "co",
       fields: [
-        { label: "Id", id: "co.id", type: "target" },
-        { label: "Name", id: "co.name", type: "target" },
-        { label: "Category", id: "co.category", type: "target" },
-        { label: "CEO", id: "co.ceo", type: "target" },
-        { label: "Location", id: "co.location", type: "target" },
+        { label: "Id", id: "co.id" },
+        { label: "Name", id: "co.name" },
+        { label: "Category", id: "co.category" },
+        { label: "CEO", id: "co.ceo" },
+        { label: "Location", id: "co.location" },
       ],
     },
   },
@@ -42,10 +41,10 @@ export const initialNodes: ClassNodeType[] = [
       label: "Location",
       id: "lo",
       fields: [
-        { label: "Id", id: "lo.id", type: "source" },
-        { label: "Address", id: "lo.address", type: "source" },
-        { label: "City", id: "lo.city", type: "source" },
-        { label: "Country", id: "lo.country", type: "source" },
+        { label: "Id", id: "lo.id" },
+        { label: "Address", id: "lo.address" },
+        { label: "City", id: "lo.city" },
+        { label: "Country", id: "lo.country" },
       ],
     },
   },
