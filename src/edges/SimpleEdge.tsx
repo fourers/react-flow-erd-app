@@ -45,6 +45,7 @@ export function SimpleEdge({
     targetPosition: targetPos,
     targetX: tx,
     targetY: ty,
+    borderRadius: 0,
   });
 
   return (

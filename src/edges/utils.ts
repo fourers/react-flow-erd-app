@@ -31,6 +31,7 @@ export function getHandleCoords(
     type == "source"
       ? node.internals.handleBounds?.source?.find((h) => h.id === handleId)
       : node.internals.handleBounds?.target?.find((h) => h.id === handleId);
+  // Will default to top-left corner of node if corresponding handle cannot be found
   const x =
     position == Position.Left
       ? node.internals.positionAbsolute.x + (handle?.x ?? 0)
